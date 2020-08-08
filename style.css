@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
+:root {
+  /* --primary-color: rgb(165, 90, 46);
+  --secondary-color: rgb(143, 73, 43);
+  --background-color: #aa6435;  */
+  --primary-color: rgb(45, 86, 161);
+  --secondary-color: rgb(21, 38, 73);
+  --background-color: #446f94;
+  --border-radius: 5px;
+  --font-oswald: "Oswald", sans-serif;
+}
+
+html {
+  /* evita crear barras de desplazamiento si supera el 100vw or vh */
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-oswald);
+  background-color: var(--background-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23ffffff' fill-opacity='0.3' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.main-title {
+  color: white;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 275px;
+  margin: 20px auto 10px;
+  user-select: none;
+
+  text-align: center;
+}
+.main-title:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* Bookmarks */
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bookmark__item {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 10px;
+}
+.bookmark__item:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+.bookmark__link {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.bookmark__link,
+.bookmark__link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.bookmark__link:hover,
+.bookmark__link:active {
+  text-decoration: underline;
+}
+
+.fa-times {
+  padding: 4px;
+  float: right;
+  cursor: pointer;
+  z-index: 2;
+}
+.fa-times:hover {
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: var(--border-radius);
+}
+.name {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.name img {
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+  vertical-align: sub;
+}
+/* Modal styling */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.show-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+}
+.modal {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  max-width: 95%;
+  width: 500px;
+
+  /* padding: 1.4rem; */
+  border-radius: var(--border-radius);
+  animation: modalopen 0.5s;
+}
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal__header {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-icon {
+  padding: 0.6rem;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal__title {
+  margin: 0;
+  padding: 0.6rem;
+}
+
+.form-group {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem 0.4rem;
+}
+
+.form-group input {
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  height: 20px;
+}
+.form-label {
+  display: block;
+}
+.form-button {
+  background-color: var(--secondary-color);
+  color: white;
+  font-family: var(--font-oswald);
+  border-radius: var(--border-radius);
+  padding: 14px;
+  border: none;
+  font-size: 14px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 12px;
+}
+.form-button:hover {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+.form-button:hover {
+  outline: none;
+}
+
+/* Media Query large smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
